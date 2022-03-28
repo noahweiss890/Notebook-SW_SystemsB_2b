@@ -22,7 +22,7 @@ namespace ariel{
             throw invalid_argument("illegal arguments! write");
         }
         for(size_t i = 0; i < text.length(); i++) {
-            if((int)text.at(i) < min_char || (int)text.at(i) > 126 || text.at(i) == '~') {
+            if((int)text.at(i) < min_char || (int)text.at(i) > max_char || text.at(i) == '~') {
                 throw invalid_argument("illegal text!");
             }
         }
@@ -92,7 +92,7 @@ namespace ariel{
         }
         int max_row = 0;
         int min_row = INT_MAX;
-        for(auto const row: this->nbook[page]) {
+        for(auto const &row: this->nbook[page]) {
             if(row.first > max_row) {
                 max_row = row.first;
             }
